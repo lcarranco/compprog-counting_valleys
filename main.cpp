@@ -3,13 +3,14 @@
 
 using namespace std;
 
-int find_all(vector<int> steps) {
+void find_all(vector<int> steps, vector<int> & indices) {
+    // cout << steps.size();
     for (int i = 0; i < steps.size(); ++i) {
-        while (steps[i] == 0) {
-
+        if (steps[i] == 0) {
+            indices.push_back(i);
+            // cout << i << ' ';
         }
     }
-    return 0;
 }
 
 int sum_between(int left, int right, vector<int> steps) {
@@ -50,8 +51,9 @@ int main() {
 
     int left = 0;
     int right = 0;
+    vector<int> indices;
     vector<int> sums;
-    find_all(steps);
+    find_all(steps, indices);
     sums.push_back(sum_between(left, right, steps));
 
     return 0;
