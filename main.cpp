@@ -18,6 +18,7 @@ int sum_between(int left, int right, vector<int> steps) {
     for (int i = left + 1; i < right; ++i) {
         sum += steps[i];
     }
+    // cout << sum << endl;
     return sum;
 }
 
@@ -49,12 +50,15 @@ int main() {
     //     cout << *it << ' ';
     // }
 
-    int left = 0;
-    int right = 0;
+    int counter = 0;
     vector<int> indices;
-    vector<int> sums;
     find_all(steps, indices);
-    sums.push_back(sum_between(left, right, steps));
+    for (int i = 0; i < indices.size() - 1; ++i) {
+        if (sum_between(indices[i], indices[i + 1], steps) < 0) {
+            ++counter;
+        }
+    }
+    cout << counter;
 
     return 0;
 }
