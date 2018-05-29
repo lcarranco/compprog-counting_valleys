@@ -28,6 +28,9 @@ s = steps
 n = number of steps in trail
 s[i] \in {U, D}
 
+$-b \pm \sqrt{b^2 - 4ac} \over 2a$
+
+
 ## Examples
 ## Solving
 ## Optimizations
