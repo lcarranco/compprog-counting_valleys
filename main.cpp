@@ -31,31 +31,17 @@ int main() {
     cin >> s;
     // cout << s;
 
-    vector<int> steps;
-    steps.push_back(0);
-    // for (vector<int>::iterator it = steps.begin(); it != steps.end(); ++it) {
-    //     cout << *it;
-    // }
-
     int k = 0;
+    int counter = 0;
     for (int i = 0; i < n; ++i) {
         if (s[i] == 'D') {
-            steps.push_back(--k);
+            --k;
         }
         if (s[i] == 'U') {
-            steps.push_back(++k);
-        }
-    }
-    // for (vector<int>::iterator it = steps.begin(); it != steps.end(); ++it) {
-    //     cout << *it << ' ';
-    // }
-
-    int counter = 0;
-    vector<int> indices;
-    find_all(steps, indices);
-    for (int i = 0; i < indices.size() - 1; ++i) {
-        if (sum_between(indices[i], indices[i + 1], steps) < 0) {
-            ++counter;
+            ++k;
+            if (k == 0) {
+                ++counter;
+            }
         }
     }
     cout << counter;
